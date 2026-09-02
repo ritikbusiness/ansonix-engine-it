@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteNav } from "@/components/site/nav";
+import { SiteFooter } from "@/components/site/footer";
+import { THEME_SCRIPT } from "@/components/site/theme-toggle";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,21 +81,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Ansonix IT — Global Technology & Software Engineering Partner" },
+      {
+        name: "description",
+        content:
+          "Ansonix IT is an India-based global technology partner delivering software development, cloud, DevOps, AI/ML, cybersecurity, data, design and dedicated engineering teams.",
+      },
+      { name: "author", content: "Ansonix IT" },
+      { property: "og:site_name", content: "Ansonix IT" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#1a1411" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Ansonix IT",
+          slogan: "Money buys code. Trust builds partnerships.",
+          description:
+            "Global IT services, software engineering, cloud, DevOps, AI/ML, cybersecurity, data and design partner based in Ahmedabad, India.",
+          email: "hello@ansonixit.site",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Ahmedabad",
+            addressRegion: "Gujarat",
+            addressCountry: "IN",
+          },
+          areaServed: ["US", "GB", "EU", "CA", "AU", "IN"],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -102,9 +134,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body>
         {children}
@@ -119,8 +152,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteNav />
+      <main id="main" className="pt-[72px]">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </main>
+      <SiteFooter />
+      <Toaster />
     </QueryClientProvider>
   );
 }
+
