@@ -12,10 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EngineeringTeamsRouteImport } from './routes/engineering-teams'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TermsOfServiceRouteImport } from './routes/terms-of-service'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -34,6 +38,11 @@ const CareersRoute = CareersRouteImport.update({
   path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EngineeringTeamsRoute = EngineeringTeamsRouteImport.update({
   id: '/engineering-teams',
   path: '/engineering-teams',
@@ -49,9 +58,24 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsOfServiceRoute = TermsOfServiceRouteImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -69,10 +93,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/engineering-teams': typeof EngineeringTeamsRoute
   '/industries': typeof IndustriesRoute
   '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -80,10 +108,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/engineering-teams': typeof EngineeringTeamsRoute
   '/industries': typeof IndustriesRoute
   '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -92,10 +124,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
   '/engineering-teams': typeof EngineeringTeamsRoute
   '/industries': typeof IndustriesRoute
   '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -105,10 +141,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/careers'
+    | '/contact'
     | '/engineering-teams'
     | '/industries'
     | '/portfolio'
+    | '/privacy-policy'
+    | '/sitemap.xml'
     | '/solutions'
+    | '/terms-of-service'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -116,10 +156,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/careers'
+    | '/contact'
     | '/engineering-teams'
     | '/industries'
     | '/portfolio'
+    | '/privacy-policy'
+    | '/sitemap.xml'
     | '/solutions'
+    | '/terms-of-service'
     | '/services/$slug'
     | '/services'
   id:
@@ -127,10 +171,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/careers'
+    | '/contact'
     | '/engineering-teams'
     | '/industries'
     | '/portfolio'
+    | '/privacy-policy'
+    | '/sitemap.xml'
     | '/solutions'
+    | '/terms-of-service'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -139,10 +187,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
   EngineeringTeamsRoute: typeof EngineeringTeamsRoute
   IndustriesRoute: typeof IndustriesRoute
   PortfolioRoute: typeof PortfolioRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SolutionsRoute: typeof SolutionsRoute
+  TermsOfServiceRoute: typeof TermsOfServiceRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -170,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/engineering-teams': {
       id: '/engineering-teams'
       path: '/engineering-teams'
@@ -191,11 +250,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-service': {
+      id: '/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof TermsOfServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -219,10 +299,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
   EngineeringTeamsRoute: EngineeringTeamsRoute,
   IndustriesRoute: IndustriesRoute,
   PortfolioRoute: PortfolioRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SolutionsRoute: SolutionsRoute,
+  TermsOfServiceRoute: TermsOfServiceRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
