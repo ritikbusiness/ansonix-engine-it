@@ -373,3 +373,87 @@ export const TRUST_PILLARS = [
   { title: "Engineering Quality", body: "Review, testing and documentation are part of the work, not extras." },
   { title: "Long-Term Partnership", body: "We optimise for the second project, not the first invoice." },
 ] as const;
+
+export interface RegionDef {
+  slug: string;
+  market: string;
+  demonym: string;
+  metaTitle: string;
+  metaDescription: string;
+  headline: string;
+  intro: string;
+  overlap: string;
+  areaServed: string;
+}
+
+export const REGIONS: RegionDef[] = [
+  {
+    slug: "usa",
+    market: "United States",
+    demonym: "US",
+    metaTitle: "IT Services Company for US Businesses | Ansonix IT",
+    metaDescription:
+      "Software development, cloud, DevOps, AI/ML, data and dedicated engineering teams for US businesses. Ahmedabad-based delivery with US working-hour overlap.",
+    headline: "IT services and engineering teams for US businesses.",
+    intro:
+      "We work with companies across the United States as their long-term technology partner — product engineering, cloud infrastructure, AI and data work, and dedicated engineers who join your existing team.",
+    overlap: "Our working day overlaps the US morning, with a written handover for every day we do not.",
+    areaServed: "US",
+  },
+  {
+    slug: "uk",
+    market: "United Kingdom",
+    demonym: "UK",
+    metaTitle: "IT Services Company for UK Businesses | Ansonix IT",
+    metaDescription:
+      "Custom software development, cloud consulting, DevOps, AI and dedicated development teams for UK businesses, delivered from Ahmedabad with UK-hours overlap.",
+    headline: "IT services and engineering teams for UK businesses.",
+    intro:
+      "From websites and web applications to cloud platforms and dedicated engineering teams, we support UK companies that need serious engineering capacity without building it in-house.",
+    overlap: "We share most of the UK working day, so reviews and stand-ups happen live.",
+    areaServed: "GB",
+  },
+  {
+    slug: "europe",
+    market: "Europe",
+    demonym: "European",
+    metaTitle: "IT Services & Software Development for Europe | Ansonix IT",
+    metaDescription:
+      "Software engineering, cloud and DevOps, AI/ML, data and BI, cybersecurity and dedicated teams for European businesses. International delivery from Ahmedabad, India.",
+    headline: "IT services and engineering teams for European businesses.",
+    intro:
+      "We partner with businesses across Europe on product engineering, platform modernisation, cloud operations and dedicated engineering capacity, with clear written communication throughout.",
+    overlap: "Our hours cover the European working day almost end to end.",
+    areaServed: "EU",
+  },
+  {
+    slug: "canada",
+    market: "Canada",
+    demonym: "Canadian",
+    metaTitle: "IT Services Company for Canadian Businesses | Ansonix IT",
+    metaDescription:
+      "Web and software development, cloud, DevOps, AI and dedicated engineers for Canadian businesses. Flexible engagement models and transparent communication.",
+    headline: "IT services and engineering teams for Canadian businesses.",
+    intro:
+      "Canadian companies work with us for product builds, cloud and DevOps, data platforms and dedicated engineers who plug straight into their delivery process.",
+    overlap: "We overlap the Canadian morning and leave a written summary for every night shift.",
+    areaServed: "CA",
+  },
+  {
+    slug: "australia",
+    market: "Australia",
+    demonym: "Australian",
+    metaTitle: "IT Services Company for Australian Businesses | Ansonix IT",
+    metaDescription:
+      "Software development, cloud and DevOps, AI/ML and dedicated development teams for Australian businesses, with strong working-hour overlap from Ahmedabad, India.",
+    headline: "IT services and engineering teams for Australian businesses.",
+    intro:
+      "We support Australian businesses across websites, custom software, cloud infrastructure, data and AI, and long-running dedicated engineering teams.",
+    overlap: "Australian and Indian hours overlap strongly, so most of the day is genuinely shared.",
+    areaServed: "AU",
+  },
+];
+
+export const REGION_MAP: Record<string, RegionDef> = Object.fromEntries(
+  REGIONS.map((r) => [r.slug, r]),
+);
