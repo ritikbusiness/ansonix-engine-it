@@ -210,13 +210,13 @@ function ContactPage() {
               ) : (
                 <form onSubmit={onSubmit} noValidate className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <Field id="name" label="Name" required error={errors.name}>
+                    <Field id="name" label="Name" required error={errors["name"]}>
                       <input id="name" name="name" className={fieldClass} placeholder="Your full name" />
                     </Field>
-                    <Field id="company" label="Company" error={errors.company}>
+                    <Field id="company" label="Company" error={errors["company"]}>
                       <input id="company" name="company" className={fieldClass} placeholder="Company name" />
                     </Field>
-                    <Field id="email" label="Business email" required error={errors.email}>
+                    <Field id="email" label="Business email" required error={errors["email"]}>
                       <input
                         id="email"
                         name="email"
@@ -225,10 +225,10 @@ function ContactPage() {
                         placeholder="you@company.com"
                       />
                     </Field>
-                    <Field id="phone" label="Phone" error={errors.phone}>
+                    <Field id="phone" label="Phone" error={errors["phone"]}>
                       <input id="phone" name="phone" className={fieldClass} placeholder="+1 555 000 0000" />
                     </Field>
-                    <Field id="country" label="Country" error={errors.country}>
+                    <Field id="country" label="Country" error={errors["country"]}>
                       <input id="country" name="country" className={fieldClass} placeholder="United States" />
                     </Field>
                     <Field id="service" label="Service">
@@ -263,7 +263,7 @@ function ContactPage() {
                     </Field>
                   </div>
 
-                  <Field id="message" label="Project description" required error={errors.message}>
+                  <Field id="message" label="Project description" required error={errors["message"]}>
                     <textarea
                       id="message"
                       name="message"
@@ -343,7 +343,7 @@ function Field({
   id: string;
   label: string;
   required?: boolean;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
