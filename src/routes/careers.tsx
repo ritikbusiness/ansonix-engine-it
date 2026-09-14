@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { ROLES, SITE } from "@/lib/site";
+import { absoluteUrl, ROLES, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/careers")({
         property: "og:description",
         content: "Engineering careers with international exposure, from our Ahmedabad base.",
       },
-      { property: "og:url", content: "/careers" },
+      { property: "og:url", content: absoluteUrl("/careers") },
     ],
-    links: [{ rel: "canonical", href: "/careers" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/careers") }],
   }),
   component: CareersPage,
 });

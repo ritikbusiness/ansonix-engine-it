@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { LOGO_URL } from "@/components/site/logo";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { SITE, TRUST_PILLARS } from "@/lib/site";
+import { absoluteUrl, SITE, TRUST_PILLARS } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Who we are, what we believe, and how we build long-term technology partnerships.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: absoluteUrl("/about") },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/about") }],
     scripts: [
       {
         type: "application/ld+json",

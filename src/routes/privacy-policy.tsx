@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container, PageHero } from "@/components/site/ui";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
@@ -13,9 +13,9 @@ export const Route = createFileRoute("/privacy-policy")({
       },
       { property: "og:title", content: "Privacy Policy | Ansonix IT" },
       { property: "og:description", content: "Our approach to personal data and privacy." },
-      { property: "og:url", content: "/privacy-policy" },
+      { property: "og:url", content: absoluteUrl("/privacy-policy") },
     ],
-    links: [{ rel: "canonical", href: "/privacy-policy" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/privacy-policy") }],
   }),
   component: PrivacyPage,
 });

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, Panel, PageHero, Section, SectionHeading, CtaButton } from "@/components/site/ui";
-import { PROCESS, SERVICES } from "@/lib/site";
+import { absoluteUrl, PROCESS, SERVICES } from "@/lib/site";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/services/")({
         content:
           "Eight engineering practices under one partner: software, web, cloud, DevOps, AI/ML, security, data and design.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: absoluteUrl("/services") },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
   }),
   component: ServicesIndex,
 });

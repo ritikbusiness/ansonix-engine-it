@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { INDUSTRIES } from "@/lib/site";
+import { absoluteUrl, INDUSTRIES } from "@/lib/site";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/industries")({
         property: "og:description",
         content: "How Ansonix IT helps each sector build, modernise and scale technology.",
       },
-      { property: "og:url", content: "/industries" },
+      { property: "og:url", content: absoluteUrl("/industries") },
     ],
-    links: [{ rel: "canonical", href: "/industries" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/industries") }],
   }),
   component: IndustriesPage,
 });

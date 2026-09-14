@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { ROLES } from "@/lib/site";
+import { absoluteUrl, ROLES } from "@/lib/site";
 
 export const Route = createFileRoute("/engineering-teams")({
   head: () => ({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/engineering-teams")({
         content:
           "Dedicated engineers and complete development teams from Ansonix IT, working inside your process and tools.",
       },
-      { property: "og:url", content: "/engineering-teams" },
+      { property: "og:url", content: absoluteUrl("/engineering-teams") },
     ],
-    links: [{ rel: "canonical", href: "/engineering-teams" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/engineering-teams") }],
     scripts: [
       {
         type: "application/ld+json",

@@ -12,6 +12,7 @@ import {
   SectionHeading,
 } from "@/components/site/ui";
 import {
+  absoluteUrl,
   ENGAGEMENTS,
   INDUSTRIES,
   PROCESS,
@@ -24,21 +25,27 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ansonix IT | Global Software, Cloud, AI & Engineering Team Partner" },
+      { title: "Ansonix IT | Software, Cloud, DevOps & AI Engineering" },
       {
         name: "description",
         content:
-          "Ansonix IT builds software, cloud, AI/ML, data and security solutions and provides dedicated engineers and development teams to businesses in the US, UK, Europe and beyond.",
+          "Ansonix IT delivers software development, cloud, DevOps, AI/ML, cybersecurity, data and design services, plus dedicated engineering teams for global businesses.",
       },
-      { property: "og:title", content: "Ansonix IT | Technology Built Around Your Business" },
+      { property: "og:title", content: "Ansonix IT | Software, Cloud, DevOps & AI Engineering" },
       {
         property: "og:description",
         content:
-          "Software. Cloud. AI. DevOps. Design. Engineering teams. One trusted technology partner, built in India, serving clients worldwide.",
+          "Software development, cloud, DevOps, AI/ML, cybersecurity, data and design services, plus dedicated engineering teams. One trusted technology partner.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: absoluteUrl("/") },
+      { name: "twitter:title", content: "Ansonix IT | Software, Cloud, DevOps & AI Engineering" },
+      {
+        name: "twitter:description",
+        content:
+          "Software development, cloud, DevOps, AI/ML, cybersecurity, data and design services, plus dedicated engineering teams. One trusted technology partner.",
+      },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/") }],
   }),
   component: Home,
 });
