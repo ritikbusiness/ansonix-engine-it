@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { SERVICES, SERVICE_MAP } from "@/lib/site";
+import { absoluteUrl, SERVICES, SERVICE_MAP } from "@/lib/site";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -24,9 +24,9 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:title", content: service.metaTitle },
         { property: "og:description", content: service.metaDescription },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: `/services/${params.slug}` },
+        { property: "og:url", content: absoluteUrl(`/services/${params.slug}`) },
       ],
-      links: [{ rel: "canonical", href: `/services/${params.slug}` }],
+      links: [{ rel: "canonical", href: absoluteUrl(`/services/${params.slug}`) }],
       scripts: [
         {
           type: "application/ld+json",

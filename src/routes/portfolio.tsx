@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -16,9 +17,9 @@ export const Route = createFileRoute("/portfolio")({
         property: "og:description",
         content: "How we document engagements: challenge, solution, technology, architecture and result.",
       },
-      { property: "og:url", content: "/portfolio" },
+      { property: "og:url", content: absoluteUrl("/portfolio") },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/portfolio") }],
   }),
   component: PortfolioPage,
 });

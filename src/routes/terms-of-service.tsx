@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container, PageHero } from "@/components/site/ui";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/terms-of-service")({
   head: () => ({
@@ -13,9 +13,9 @@ export const Route = createFileRoute("/terms-of-service")({
       },
       { property: "og:title", content: "Terms of Service | Ansonix IT" },
       { property: "og:description", content: "Terms governing use of the Ansonix IT website." },
-      { property: "og:url", content: "/terms-of-service" },
+      { property: "og:url", content: absoluteUrl("/terms-of-service") },
     ],
-    links: [{ rel: "canonical", href: "/terms-of-service" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/terms-of-service") }],
   }),
   component: TermsPage,
 });

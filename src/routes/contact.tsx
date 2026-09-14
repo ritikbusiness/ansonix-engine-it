@@ -5,7 +5,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "@/components/site/reveal";
 import { Container, CtaButton, Eyebrow, Panel, Section, SectionHeading } from "@/components/site/ui";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,9 +21,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Let's build something great. Tell us about your project or the engineering capacity you need.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: absoluteUrl("/contact") },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
   component: ContactPage,
 });

@@ -1,5 +1,25 @@
+/**
+ * Canonical production origin. All canonical + og:url values derive from this.
+ */
+export const SITE_URL = "https://www.ansonixit.site";
+
+/**
+ * Official Ansonix IT profiles used for schema.org `sameAs`.
+ * Add verified profile URLs here (LinkedIn, X, etc.) — the Organization
+ * structured data picks them up automatically. Never add placeholders.
+ */
+export const SOCIAL_PROFILES: string[] = [];
+
+/** Build an absolute production URL from a site-relative path. */
+export function absoluteUrl(path: string): string {
+  return `${SITE_URL}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
+}
+
 export const SITE = {
   name: "Ansonix IT",
+  url: SITE_URL,
+  ogImage: `${SITE_URL}/og-image.png`,
+  logo: `${SITE_URL}/favicon.png`,
   slogan: "Money buys code. Trust builds partnerships.",
   tagline: "Technology Built Around Your Business.",
   emails: {

@@ -15,6 +15,7 @@ import { SiteNav } from "@/components/site/nav";
 import { SiteFooter } from "@/components/site/footer";
 import { THEME_SCRIPT } from "@/components/site/theme-toggle";
 import { Toaster } from "@/components/ui/sonner";
+import { SITE, SITE_URL, SOCIAL_PROFILES } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -90,7 +91,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Ansonix IT" },
       { property: "og:site_name", content: "Ansonix IT" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: SITE.ogImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Ansonix IT" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Ansonix IT | Software, Cloud, DevOps & AI Engineering" },
+      {
+        name: "twitter:description",
+        content:
+          "Ansonix IT is a global technology partner delivering software, cloud, DevOps, AI/ML, cybersecurity, data and design services.",
+      },
+      { name: "twitter:image", content: SITE.ogImage },
+      { name: "twitter:image:alt", content: "Ansonix IT" },
       { name: "theme-color", content: "#1a1411" },
     ],
     links: [
@@ -111,6 +125,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Ansonix IT",
+          alternateName: "Ansonix",
+          url: `${SITE_URL}/`,
+          logo: SITE.logo,
+          image: SITE.ogImage,
           slogan: "Money buys code. Trust builds partnerships.",
           description:
             "Global IT services, software engineering, cloud, DevOps, AI/ML, cybersecurity, data and design partner based in Ahmedabad, India.",
@@ -122,6 +140,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressCountry: "IN",
           },
           areaServed: ["US", "GB", "EU", "CA", "AU", "IN"],
+          // sameAs is emitted only when official profiles exist (see SOCIAL_PROFILES in src/lib/site.ts)
+          ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Ansonix IT",
+          alternateName: "Ansonix",
+          url: `${SITE_URL}/`,
+          publisher: { "@type": "Organization", name: "Ansonix IT", url: `${SITE_URL}/` },
         }),
       },
     ],

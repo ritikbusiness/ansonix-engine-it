@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { ENGAGEMENTS, REGION_MAP, REGIONS, SERVICES, TRUST_PILLARS } from "@/lib/site";
+import { absoluteUrl, ENGAGEMENTS, REGION_MAP, REGIONS, SERVICES, TRUST_PILLARS } from "@/lib/site";
 
 export const Route = createFileRoute("/it-services/$region")({
   loader: ({ params }) => {
@@ -24,10 +24,10 @@ export const Route = createFileRoute("/it-services/$region")({
         { property: "og:title", content: region.metaTitle },
         { property: "og:description", content: region.metaDescription },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: `/it-services/${params.region}` },
+        { property: "og:url", content: absoluteUrl(`/it-services/${params.region}`) },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: `/it-services/${params.region}` }],
+      links: [{ rel: "canonical", href: absoluteUrl(`/it-services/${params.region}`) }],
       scripts: [
         {
           type: "application/ld+json",

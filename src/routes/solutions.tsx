@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/reveal";
 import { ClosingCta, CtaButton, Panel, PageHero, Section, SectionHeading } from "@/components/site/ui";
-import { ENGAGEMENTS, SCALE_LADDER } from "@/lib/site";
+import { absoluteUrl, ENGAGEMENTS, SCALE_LADDER } from "@/lib/site";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/solutions")({
         property: "og:description",
         content: "Six ways to work with Ansonix IT, from a single product build to a complete engineering team.",
       },
-      { property: "og:url", content: "/solutions" },
+      { property: "og:url", content: absoluteUrl("/solutions") },
     ],
-    links: [{ rel: "canonical", href: "/solutions" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/solutions") }],
   }),
   component: SolutionsPage,
 });
