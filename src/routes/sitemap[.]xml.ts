@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { SERVICES } from "@/lib/site";
+import { REGIONS, SERVICES } from "@/lib/site";
 
 // TODO: replace with your project URL once a project name or custom domain is set.
 const BASE_URL = "";
@@ -23,6 +23,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/services/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
+          })),
+          ...REGIONS.map((r) => ({
+            path: `/it-services/${r.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
           })),
           { path: "/solutions", changefreq: "monthly", priority: "0.8" },
           { path: "/engineering-teams", changefreq: "monthly", priority: "0.9" },
