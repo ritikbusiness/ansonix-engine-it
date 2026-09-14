@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/ansonix-logo.png.asset.json";
+import logoUrl from "@/assets/ansonix-logo.png";
 
-export const LOGO_URL = logoAsset.url;
+export const LOGO_URL = logoUrl;
 
 export function Logo({
   size = 40,
