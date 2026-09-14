@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MapPin } from "lucide-react";
 import { Logo } from "./logo";
 import { Container } from "./ui";
-import { SERVICES, SITE } from "@/lib/site";
+import { REGIONS, SERVICES, SITE } from "@/lib/site";
 
 const company = [
   { label: "About", to: "/about" },
@@ -110,7 +110,26 @@ export function SiteFooter() {
           </Column>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 border-t border-border pt-8">
+          <h3 className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-copper">
+            Global markets
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+            {REGIONS.map((r) => (
+              <li key={r.slug}>
+                <Link
+                  to="/it-services/$region"
+                  params={{ region: r.slug }}
+                  className="text-muted-foreground transition-colors hover:text-copper"
+                >
+                  IT Services for {r.market}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Ansonix IT. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
             <Link to="/privacy-policy" className="transition-colors hover:text-copper">
